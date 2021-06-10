@@ -11,6 +11,7 @@
 		3C52043C266DDAD700087B05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52043B266DDAD700087B05 /* ContentView.swift */; };
 		3C52043E266DDADA00087B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C52043D266DDADA00087B05 /* Assets.xcassets */; };
 		3C520441266DDADA00087B05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C520440266DDADA00087B05 /* Preview Assets.xcassets */; };
+		3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204492671DB3B00087B05 /* WeatherAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		3C52043D266DDADA00087B05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C520440266DDADA00087B05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C520442266DDADA00087B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C5204492671DB3B00087B05 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				3C520439266DDAD700087B05 /* OpenWeatherApp.swift */,
 				3C52043B266DDAD700087B05 /* ContentView.swift */,
+				3C52044C2671DBEC00087B05 /* WeatherAPI */,
 				3C52043D266DDADA00087B05 /* Assets.xcassets */,
 				3C520442266DDADA00087B05 /* Info.plist */,
 				3C52043F266DDADA00087B05 /* Preview Content */,
@@ -67,6 +70,14 @@
 				3C520440266DDADA00087B05 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3C52044C2671DBEC00087B05 /* WeatherAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3C5204492671DB3B00087B05 /* WeatherAPI.swift */,
+			);
+			path = WeatherAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */,
 				3C52043C266DDAD700087B05 /* ContentView.swift in Sources */,
 				3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */,
 			);
