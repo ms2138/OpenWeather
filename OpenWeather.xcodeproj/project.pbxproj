@@ -14,6 +14,7 @@
 		3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204492671DB3B00087B05 /* WeatherAPI.swift */; };
 		3C520453267700DB00087B05 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C520452267700DB00087B05 /* APIError.swift */; };
 		3C5204562677016700087B05 /* APIDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204552677016700087B05 /* APIDecode.swift */; };
+		3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204592677026F00087B05 /* APISessionProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3C5204492671DB3B00087B05 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		3C520452267700DB00087B05 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3C5204552677016700087B05 /* APIDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDecode.swift; sourceTree = "<group>"; };
+		3C5204592677026F00087B05 /* APISessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISessionProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				3C5204492671DB3B00087B05 /* WeatherAPI.swift */,
 				3C520452267700DB00087B05 /* APIError.swift */,
 				3C5204552677016700087B05 /* APIDecode.swift */,
+				3C5204592677026F00087B05 /* APISessionProvider.swift */,
 			);
 			path = WeatherAPI;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			files = (
 				3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */,
 				3C52043C266DDAD700087B05 /* ContentView.swift in Sources */,
+				3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */,
 				3C520453267700DB00087B05 /* APIError.swift in Sources */,
 				3C5204562677016700087B05 /* APIDecode.swift in Sources */,
 				3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */,
