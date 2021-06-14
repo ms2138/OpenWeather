@@ -29,4 +29,35 @@ class WeatherAPI {
 
         return components
     }
+
+    // Create daily forecast endpoint using longitude and latitude coordinates
+    func createDailyForecastEndpoint(forCoordinates coord: Coordinates, unit: TemperatureUnit = .metric) -> URLComponents {
+        var components = createWeatherAPIComponents()
+        components.path = APIEndpoint.dataPath + "/weather"
+
+        components.queryItems = [
+            URLQueryItem(name: "lat", value: String(coord.latitude)),
+            URLQueryItem(name: "lon", value: String(coord.longitude)),
+            URLQueryItem(name: "units", value: unit.rawValue),
+            URLQueryItem(name: "appid", value: APIEndpoint.key)
+        ]
+
+        return components
+    }
+}
+
+struct Coordinates {
+    let latitude: Double
+    let longitude: Double
+}
+
+// OpenWeather TemperatureUnit
+// Returned temperature can be in:
+// metric will result in Celsius
+// imperial will result in Fahrenheit
+// standard will result in Kelvin
+enum TemperatureUnit: String {
+    case metric = "metric",
+         imperial = "imperial",
+         standard = "standard"
 }
