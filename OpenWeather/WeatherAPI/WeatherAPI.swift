@@ -44,6 +44,52 @@ class WeatherAPI {
 
         return components
     }
+
+    // Create five day forecast endpoint using longitude and latitude coordinates
+    func createFiveDayForecastEndpoint(forCoordinates coord: Coordinates, unit: TemperatureUnit) -> URLComponents {
+        var components = createWeatherAPIComponents()
+        components.path = APIEndpoint.dataPath + "/forecast"
+
+        components.queryItems = [
+            URLQueryItem(name: "lat", value: String(coord.latitude)),
+            URLQueryItem(name: "lon", value: String(coord.longitude)),
+            URLQueryItem(name: "units", value: unit.rawValue),
+            URLQueryItem(name: "appid", value: APIEndpoint.key)
+        ]
+
+        return components
+    }
+
+    // Create seven day forecast endpoint using longitude and latitude coordinates
+    func createSevenDayForecastEndpoint(forCoordinates coord: Coordinates, unit: TemperatureUnit) -> URLComponents {
+        var components = createWeatherAPIComponents()
+        components.path = APIEndpoint.dataPath + "/onecall"
+
+        components.queryItems = [
+            URLQueryItem(name: "lat", value: String(coord.latitude)),
+            URLQueryItem(name: "lon", value: String(coord.longitude)),
+            URLQueryItem(name: "exclude", value: "current,alerts,hourly,minutely"),
+            URLQueryItem(name: "units", value: unit.rawValue),
+            URLQueryItem(name: "appid", value: APIEndpoint.key)
+        ]
+
+        return components
+    }
+
+    // Create location search endpoint using a city name.  Limit parameter controls how many cities you will
+    // see with the same name.
+    func createLocationsEndpoint(forCity city: String, limit: String = "20") -> URLComponents {
+        var components = createWeatherAPIComponents()
+        components.path = APIEndpoint.geoPath + "/direct"
+
+        components.queryItems = [
+            URLQueryItem(name: "q", value: city),
+            URLQueryItem(name: "limit", value: limit),
+            URLQueryItem(name: "appid", value: APIEndpoint.key)
+        ]
+
+        return components
+    }
 }
 
 struct Coordinates {
