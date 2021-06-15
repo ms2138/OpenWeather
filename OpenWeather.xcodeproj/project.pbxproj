@@ -16,6 +16,7 @@
 		3C5204562677016700087B05 /* APIDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204552677016700087B05 /* APIDecode.swift */; };
 		3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204592677026F00087B05 /* APISessionProvider.swift */; };
 		3C52045D267858AA00087B05 /* WeatherFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52045C267858AA00087B05 /* WeatherFetchable.swift */; };
+		3C5204612678592A00087B05 /* FiveDayWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204602678592A00087B05 /* FiveDayWeatherForecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3C5204552677016700087B05 /* APIDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDecode.swift; sourceTree = "<group>"; };
 		3C5204592677026F00087B05 /* APISessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISessionProvider.swift; sourceTree = "<group>"; };
 		3C52045C267858AA00087B05 /* WeatherFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetchable.swift; sourceTree = "<group>"; };
+		3C5204602678592A00087B05 /* FiveDayWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayWeatherForecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				3C520439266DDAD700087B05 /* OpenWeatherApp.swift */,
 				3C52043B266DDAD700087B05 /* ContentView.swift */,
+				3C52045F2678590F00087B05 /* Models */,
 				3C52044C2671DBEC00087B05 /* WeatherAPI */,
 				3C52043D266DDADA00087B05 /* Assets.xcassets */,
 				3C520442266DDADA00087B05 /* Info.plist */,
@@ -90,6 +93,14 @@
 				3C52045C267858AA00087B05 /* WeatherFetchable.swift */,
 			);
 			path = WeatherAPI;
+			sourceTree = "<group>";
+		};
+		3C52045F2678590F00087B05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C5204602678592A00087B05 /* FiveDayWeatherForecast.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */,
 				3C520453267700DB00087B05 /* APIError.swift in Sources */,
 				3C5204562677016700087B05 /* APIDecode.swift in Sources */,
+				3C5204612678592A00087B05 /* FiveDayWeatherForecast.swift in Sources */,
 				3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
