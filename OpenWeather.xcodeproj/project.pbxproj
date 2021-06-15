@@ -15,6 +15,7 @@
 		3C520453267700DB00087B05 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C520452267700DB00087B05 /* APIError.swift */; };
 		3C5204562677016700087B05 /* APIDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204552677016700087B05 /* APIDecode.swift */; };
 		3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204592677026F00087B05 /* APISessionProvider.swift */; };
+		3C52045D267858AA00087B05 /* WeatherFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52045C267858AA00087B05 /* WeatherFetchable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3C520452267700DB00087B05 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3C5204552677016700087B05 /* APIDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDecode.swift; sourceTree = "<group>"; };
 		3C5204592677026F00087B05 /* APISessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISessionProvider.swift; sourceTree = "<group>"; };
+		3C52045C267858AA00087B05 /* WeatherFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetchable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				3C520452267700DB00087B05 /* APIError.swift */,
 				3C5204552677016700087B05 /* APIDecode.swift */,
 				3C5204592677026F00087B05 /* APISessionProvider.swift */,
+				3C52045C267858AA00087B05 /* WeatherFetchable.swift */,
 			);
 			path = WeatherAPI;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C52045D267858AA00087B05 /* WeatherFetchable.swift in Sources */,
 				3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */,
 				3C52043C266DDAD700087B05 /* ContentView.swift in Sources */,
 				3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */,
