@@ -31,10 +31,6 @@ struct FiveDayWeatherForecast: Codable {
         let population, timezone, sunrise, sunset: Int
     }
 
-    struct Coord: Codable {
-        let lat, lon: Double
-    }
-
     struct MainClass: Codable {
         let temp: Double
     }
@@ -47,11 +43,5 @@ struct FiveDayWeatherForecast: Codable {
             case main
             case weatherDescription = "description"
         }
-    }
-
-    enum MainEnum: String, Codable {
-        case clear = "Clear"
-        case clouds = "Clouds"
-        case rain = "Rain"
     }
 }
