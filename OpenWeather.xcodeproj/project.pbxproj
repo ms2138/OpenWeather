@@ -19,6 +19,7 @@
 		3C5204612678592A00087B05 /* FiveDayWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204602678592A00087B05 /* FiveDayWeatherForecast.swift */; };
 		3C52046426785FBB00087B05 /* SevenDayWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52046326785FBB00087B05 /* SevenDayWeatherForecast.swift */; };
 		3C52046A2679A41D00087B05 /* SharedResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204692679A41D00087B05 /* SharedResponseTypes.swift */; };
+		3C52046E2679A9B200087B05 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52046D2679A9B200087B05 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3C5204602678592A00087B05 /* FiveDayWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayWeatherForecast.swift; sourceTree = "<group>"; };
 		3C52046326785FBB00087B05 /* SevenDayWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDayWeatherForecast.swift; sourceTree = "<group>"; };
 		3C5204692679A41D00087B05 /* SharedResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedResponseTypes.swift; sourceTree = "<group>"; };
+		3C52046D2679A9B200087B05 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				3C5204602678592A00087B05 /* FiveDayWeatherForecast.swift */,
 				3C52046326785FBB00087B05 /* SevenDayWeatherForecast.swift */,
 				3C5204692679A41D00087B05 /* SharedResponseTypes.swift */,
+				3C52046D2679A9B200087B05 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C52045D267858AA00087B05 /* WeatherFetchable.swift in Sources */,
+				3C52046E2679A9B200087B05 /* Location.swift in Sources */,
 				3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */,
 				3C52043C266DDAD700087B05 /* ContentView.swift in Sources */,
 				3C52046A2679A41D00087B05 /* SharedResponseTypes.swift in Sources */,
