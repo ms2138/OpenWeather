@@ -20,6 +20,7 @@
 		3C52046426785FBB00087B05 /* SevenDayWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52046326785FBB00087B05 /* SevenDayWeatherForecast.swift */; };
 		3C52046A2679A41D00087B05 /* SharedResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204692679A41D00087B05 /* SharedResponseTypes.swift */; };
 		3C52046E2679A9B200087B05 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52046D2679A9B200087B05 /* Location.swift */; };
+		3C5204712679B84E00087B05 /* CurrentWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204702679B84E00087B05 /* CurrentWeatherForecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		3C52046326785FBB00087B05 /* SevenDayWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDayWeatherForecast.swift; sourceTree = "<group>"; };
 		3C5204692679A41D00087B05 /* SharedResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedResponseTypes.swift; sourceTree = "<group>"; };
 		3C52046D2679A9B200087B05 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3C5204702679B84E00087B05 /* CurrentWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherForecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				3C52046326785FBB00087B05 /* SevenDayWeatherForecast.swift */,
 				3C5204692679A41D00087B05 /* SharedResponseTypes.swift */,
 				3C52046D2679A9B200087B05 /* Location.swift */,
+				3C5204702679B84E00087B05 /* CurrentWeatherForecast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				3C52046426785FBB00087B05 /* SevenDayWeatherForecast.swift in Sources */,
 				3C520453267700DB00087B05 /* APIError.swift in Sources */,
 				3C5204562677016700087B05 /* APIDecode.swift in Sources */,
+				3C5204712679B84E00087B05 /* CurrentWeatherForecast.swift in Sources */,
 				3C5204612678592A00087B05 /* FiveDayWeatherForecast.swift in Sources */,
 				3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */,
 			);
