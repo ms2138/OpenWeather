@@ -7,5 +7,8 @@
 
 import Foundation
 
-struct CurrentWeatherForecast {
+struct CurrentWeatherForecast: Decodable, Identifiable {
+    let id: Int
+    let name: String
+    let coord: Coord
 }
