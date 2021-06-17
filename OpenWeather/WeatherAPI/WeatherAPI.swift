@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import Combine
 
 class WeatherAPI {
+    private let session: APISession
+
+    init(session: APISession = APISessionProvider()) {
+        self.session = session
+    }
+
     // APIEndpoint
     // Generate a base api endpoint to different OpenWeather API services
     // geoPath will allow access to location search
@@ -106,4 +113,24 @@ enum TemperatureUnit: String {
     case metric = "metric",
          imperial = "imperial",
          standard = "standard"
+}
+
+extension WeatherAPI: WeatherFetchable {
+    func getFiveDayWeatherForecast(forCoordinates coord: Coordinates, unit: TemperatureUnit) -> AnyPublisher<FiveDayWeatherForecast, APIError> {
+        return session.performRequest(createFiveDayForecastEndpoint(forCoordinates: coord, unit: unit))
+    }
+
+    func getSevenDayWeatherForecast(forCoordinates coord: Coordinates,
+                                    unit: TemperatureUnit = .metric) -> AnyPublisher<SevenDayWeatherForecast, APIError> {
+        return session.performRequest(createSevenDayForecastEndpoint(forCoordinates: coord, unit: unit))
+    }
+
+    func getCurrentWeatherForecast(forCoordinates coord: Coordinates,
+                                   unit: TemperatureUnit = .metric) -> AnyPublisher<CurrentWeatherForecast, APIError> {
+        return session.performRequest(createDailyForecastEndpoint(forCoordinates: coord, unit: unit))
+    }
+
+    func getLocations(forCity city: String) -> AnyPublisher<Location, APIError> {
+        return session.performRequest(createLocationsEndpoint(forCity: city))
+    }
 }
