@@ -9,5 +9,6 @@ import Foundation
 import Combine
 
 class LocationViewModel: ObservableObject {
-
+    var weather = WeatherAPI()
+    @Published var city: String = ""
 }
