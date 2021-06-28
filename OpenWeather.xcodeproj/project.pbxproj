@@ -22,6 +22,7 @@
 		3C52046E2679A9B200087B05 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52046D2679A9B200087B05 /* Location.swift */; };
 		3C5204712679B84E00087B05 /* CurrentWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5204702679B84E00087B05 /* CurrentWeatherForecast.swift */; };
 		3C520476267AFE8300087B05 /* AddCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C520475267AFE8300087B05 /* AddCityView.swift */; };
+		3C52047A26896ECB00087B05 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52047926896ECB00087B05 /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3C52046D2679A9B200087B05 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3C5204702679B84E00087B05 /* CurrentWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherForecast.swift; sourceTree = "<group>"; };
 		3C520475267AFE8300087B05 /* AddCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityView.swift; sourceTree = "<group>"; };
+		3C52047926896ECB00087B05 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				3C520439266DDAD700087B05 /* OpenWeatherApp.swift */,
 				3C52043B266DDAD700087B05 /* ContentView.swift */,
 				3C520475267AFE8300087B05 /* AddCityView.swift */,
+				3C52047D26896ED600087B05 /* View Models */,
 				3C52045F2678590F00087B05 /* Models */,
 				3C52044C2671DBEC00087B05 /* WeatherAPI */,
 				3C52043D266DDADA00087B05 /* Assets.xcassets */,
@@ -116,6 +119,14 @@
 				3C5204702679B84E00087B05 /* CurrentWeatherForecast.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3C52047D26896ED600087B05 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C52047926896ECB00087B05 /* LocationViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 				3C5204562677016700087B05 /* APIDecode.swift in Sources */,
 				3C520476267AFE8300087B05 /* AddCityView.swift in Sources */,
 				3C5204712679B84E00087B05 /* CurrentWeatherForecast.swift in Sources */,
+				3C52047A26896ECB00087B05 /* LocationViewModel.swift in Sources */,
 				3C5204612678592A00087B05 /* FiveDayWeatherForecast.swift in Sources */,
 				3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */,
 			);
