@@ -14,6 +14,14 @@ class LocationViewModel: ObservableObject {
     @Published var dataSource: [LocationElement] = []
     private var disposables = Set<AnyCancellable>()
 
+    init() {
+        $city
+            .dropFirst(1) // Drop the first value because it will perform a search for an empty city
+            .debounce(for: .seconds(1.0), scheduler: DispatchQueue(label: "LocationViewModel"))
+            .sink(receiveValue: locations(for:))
+            .store(in: &disposables)
+    }
+
     func locations(for string: String) {
         weather.getLocations(forCity: city)
             .receive(on: DispatchQueue.main)
