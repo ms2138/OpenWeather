@@ -23,6 +23,8 @@ struct AddCityView: View {
                 .padding(.top, 20.0)
 
                 searchField
+
+                locations
             }
         }
     }
@@ -51,6 +53,24 @@ private extension AddCityView {
                 Text("Cancel")
             }
             .padding(.trailing, 10)
+        }
+    }
+
+    var locations: some View {
+        Section {
+            ForEach (viewModel.dataSource) { location in
+                VStack(alignment: .leading) {
+                    if let state = location.state {
+                        Text("\(location.name), \(state), \(location.country)")
+                    } else {
+                        Text("\(location.name), \(location.country)")
+                    }
+                }
+                .onTapGesture {
+                    addCityConfig.newLocation = location
+                    addCityConfig.dismiss(save: true)
+                }
+            }
         }
     }
 }
