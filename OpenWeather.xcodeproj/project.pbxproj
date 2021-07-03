@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C0F3E0D26901422005D6A1F /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F3E0C26901422005D6A1F /* WeatherDetailView.swift */; };
+		3C0F3E1026901EC9005D6A1F /* WeeklyWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F3E0F26901EC9005D6A1F /* WeeklyWeatherViewModel.swift */; };
 		3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C520439266DDAD700087B05 /* OpenWeatherApp.swift */; };
 		3C52043C266DDAD700087B05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52043B266DDAD700087B05 /* ContentView.swift */; };
 		3C52043E266DDADA00087B05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C52043D266DDADA00087B05 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		3C0F3E0C26901422005D6A1F /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
+		3C0F3E0F26901EC9005D6A1F /* WeeklyWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherViewModel.swift; sourceTree = "<group>"; };
 		3C520436266DDAD700087B05 /* OpenWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C520439266DDAD700087B05 /* OpenWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherApp.swift; sourceTree = "<group>"; };
 		3C52043B266DDAD700087B05 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				3C52047926896ECB00087B05 /* LocationViewModel.swift */,
+				3C0F3E0F26901EC9005D6A1F /* WeeklyWeatherViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				3C52046E2679A9B200087B05 /* Location.swift in Sources */,
 				3C52044A2671DB3B00087B05 /* WeatherAPI.swift in Sources */,
 				3C52043C266DDAD700087B05 /* ContentView.swift in Sources */,
+				3C0F3E1026901EC9005D6A1F /* WeeklyWeatherViewModel.swift in Sources */,
 				3C52046A2679A41D00087B05 /* SharedResponseTypes.swift in Sources */,
 				3C52045A2677026F00087B05 /* APISessionProvider.swift in Sources */,
 				3C52046426785FBB00087B05 /* SevenDayWeatherForecast.swift in Sources */,
