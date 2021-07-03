@@ -12,6 +12,9 @@ enum MainEnum: String, Codable {
     case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
+    case snow = "Snow"
+    case thunderstorm = "Thunderstorm"
+    case drizzle = "Drizzle"
 }
 
 // Geographic coordinates
