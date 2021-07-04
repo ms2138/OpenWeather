@@ -24,7 +24,10 @@ struct AddCityView: View {
 
                 searchField
 
-                locations
+                List {
+                    locations
+                }
+                .listStyle(GroupedListStyle())
             }
         }
     }
