@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 class CurrentWeatherViewModel: ObservableObject {
-
+    var weather = WeatherAPI()
+    @Published var dataSource = [CurrentWeatherForecast]()
 }
