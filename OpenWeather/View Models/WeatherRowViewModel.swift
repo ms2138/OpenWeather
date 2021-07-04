@@ -59,4 +59,8 @@ struct WeatherRowViewModel: Identifiable {
     var uvIndex: String {
         return String(format: "%d", forecast.uvi)
     }
+
+    init(forecast: Forecast) {
+        self.forecast = forecast
+    }
 }
