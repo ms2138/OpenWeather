@@ -26,6 +26,12 @@ class LocationViewModel: ObservableObject {
         weather.getLocations(forCity: city)
             .receive(on: DispatchQueue.main)
             .sink { (value) in
+                switch value {
+                    case .finished:
+                        break
+                    case .failure(_):
+                        print("Request failed: \(value)")
+                }
             } receiveValue: { (location) in
                 self.dataSource = location
             }
