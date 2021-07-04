@@ -35,4 +35,21 @@ struct WeatherRowViewModel: Identifiable {
     var minTemperature: String {
         return String(format: "%.1f", forecast.temp.min)
     }
+
+    var humidity: String {
+        return String(format: "%d%%", forecast.humidity)
+    }
+
+    var precipitation: String {
+        return String(format: "%.0f%%", forecast.pop)
+    }
+
+    var sunrise: String {
+        return timeFormatter.string(from: forecast.sunrise)
+    }
+
+    var sunset: String {
+        return timeFormatter.string(from: forecast.sunset)
+    }
+
 }
