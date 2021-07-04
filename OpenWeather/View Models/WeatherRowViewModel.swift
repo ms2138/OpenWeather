@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct WeatherRowViewModel {
-
+struct WeatherRowViewModel: Identifiable {
+    private let forecast: Forecast
+    var id: UUID = UUID()
 }
