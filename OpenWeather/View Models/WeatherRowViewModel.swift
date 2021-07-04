@@ -52,4 +52,11 @@ struct WeatherRowViewModel: Identifiable {
         return timeFormatter.string(from: forecast.sunset)
     }
 
+    var feelsLike: String {
+        return String(format: "%.1f", forecast.feelsLike.day)
+    }
+
+    var uvIndex: String {
+        return String(format: "%d", forecast.uvi)
+    }
 }
