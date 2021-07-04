@@ -11,6 +11,7 @@ struct CurrentWeatherForecast: Decodable, Identifiable {
     let id: Int
     let name: String
     let coord: Coord
+    let weather: [Weather]
     let main: Main
 
     struct Main: Codable {
@@ -24,6 +25,17 @@ struct CurrentWeatherForecast: Decodable, Identifiable {
             case humidity
             case maxTemperature = "temp_max"
             case minTemperature = "temp_min"
+        }
+    }
+
+    struct Weather: Codable {
+        let id: Int
+        let main, weatherDescription, icon: String
+
+        enum CodingKeys: String, CodingKey {
+            case id, main
+            case weatherDescription = "description"
+            case icon
         }
     }
 }
