@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct WeatherDetailView: View {
+    @ObservedObject private var viewModel = WeeklyWeatherViewModel()
+    var coordinates: Coordinates
+
     var body: some View {
-        Text("Weather")
+
     }
 }
 
 struct WeatherDetailView_Previews: PreviewProvider {
+    @State static var coord = Coordinates(latitude: 23.0, longitude: 45.0)
+
     static var previews: some View {
-        WeatherDetailView()
+        WeatherDetailView(coordinates: coord)
     }
 }
+
