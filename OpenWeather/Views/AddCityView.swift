@@ -51,7 +51,7 @@ private extension AddCityView {
                 )
                 .padding(.horizontal, 10)
             Button(action: {
-
+                addCityConfig.dismiss()
             }) {
                 Text("Cancel")
             }
