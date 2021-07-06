@@ -11,7 +11,7 @@ struct WeatherRowViewModel: Identifiable {
     private let forecast: Forecast
     var id: UUID = UUID()
 
-    var icons: String {
+    var icon: String {
         switch forecast.weather[0].main {
             case .snow:
                 return "🌨"
@@ -26,6 +26,15 @@ struct WeatherRowViewModel: Identifiable {
             case .rain:
                 return "🌧"
         }
+    }
+
+    var day: String {
+        return dayFormatter.string(from: forecast.date)
+    }
+
+    var description: String {
+        guard let description = forecast.weather.first?.weatherDescription else { return "" }
+        return description
     }
 
     var maxTemperature: String {
