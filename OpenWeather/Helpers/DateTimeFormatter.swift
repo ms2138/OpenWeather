@@ -12,3 +12,10 @@ let timeFormatter: DateFormatter = {
     formatter.dateFormat = "h:mm a"
     return formatter
 }()
+
+let dayFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .full
+    formatter.dateFormat = "EEEE"
+    return formatter
+}()
