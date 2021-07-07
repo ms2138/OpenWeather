@@ -11,23 +11,29 @@ import Combine
 class WeeklyWeatherViewModel: ObservableObject {
     var weather = WeatherAPI()
     @Published var dataSource: [WeatherRowViewModel] = []
+    @Published private(set) var state = LoadingState.idle
     private var disposables = Set<AnyCancellable>()
 
     func weeklyWeather(forCoordinates coord: Coordinates) {
+        self.state = .loading
+
         weather.getSevenDayWeatherForecast(forCoordinates: coord)
             .map {
                 $0.forecast.map(WeatherRowViewModel.init)
             }
             .receive(on: DispatchQueue.main)
-            .sink { (value) in
+            .sink { [weak self] (value) in
+                guard let weakSelf = self else { return }
                 switch value {
                     case .finished:
                         break
-                    case .failure(_):
-                        print("Request failed: \(value)")
+                    case .failure(let error):
+                        weakSelf.state = .failed(error)
                 }
-            } receiveValue: { (forecast) in
-                self.dataSource = forecast
+            } receiveValue: { [weak self] (forecast) in
+                guard let weakSelf = self else { return }
+                weakSelf.state = .loaded
+                weakSelf.dataSource = forecast
             }
             .store(in: &disposables)
     }
