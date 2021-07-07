@@ -12,7 +12,7 @@ struct CurrentWeatherRowView: View {
 
     var body: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text("\(weather.name)")
                 Text("\(weather.weather.first!.weatherDescription)")
                     .autocapitalization(.words)
