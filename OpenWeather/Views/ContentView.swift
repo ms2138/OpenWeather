@@ -8,9 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var currentWeatherViewModel = CurrentWeatherViewModel()
+    @State private var addCityConfig = AddCityConfig()
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(currentWeatherViewModel.dataSource) { weather in
+                        HStack {
+                            NavigationLink(destination: WeatherDetailView(coordinates: Coordinates(latitude: weather.coord.lat,
+                                                                                                   longitude: weather.coord.lon))) {
+                                CurrentWeatherRowView(weather: weather)
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Weather")
+        }
     }
 }
 
