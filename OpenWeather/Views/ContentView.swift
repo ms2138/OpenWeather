@@ -23,6 +23,30 @@ struct ContentView: View {
                             }
                         }
                     }
+                    .onDelete { indexSet in
+                        currentWeatherViewModel.dataSource.remove(atOffsets: indexSet)
+                    }
+
+                    HStack(alignment: .center) {
+                        Spacer()
+
+                        Button(action: {
+                            addCityConfig.present()
+                        }) {
+                            Image(systemName: "plus.circle")
+                        }
+                        .foregroundColor(.blue)
+                        .buttonStyle(PlainButtonStyle())
+                        .sheet(isPresented: $addCityConfig.isPresented, onDismiss: {
+                            if addCityConfig.needsSave {
+                                currentWeatherViewModel.currentWeather(forCoordinates:
+                                                                        Coordinates(latitude: addCityConfig.newLocation.lat,
+                                                                                    longitude: addCityConfig.newLocation.lon))
+                            }
+                        }, content: {
+                            AddCityView(addCityConfig: $addCityConfig)
+                        })
+                    }
                 }
             }
             .navigationBarTitle("Weather")
