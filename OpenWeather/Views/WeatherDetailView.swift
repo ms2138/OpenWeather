@@ -12,7 +12,28 @@ struct WeatherDetailView: View {
     var coordinates: Coordinates
 
     var body: some View {
+        switch viewModel.state {
+            case .idle:
+                Color.clear.onAppear {
+                    viewModel.weeklyWeather(forCoordinates: coordinates)
+                }
+            case .loading:
+                ProgressView()
+            case .failed(let error):
+                Text("No results \(error.localizedDescription)")
+            case .loaded:
+                List {
+                    forecastSection
+                }
+        }
+    }
+}
 
+private extension WeatherDetailView {
+    var forecastSection: some View {
+        Section {
+            ForEach(viewModel.dataSource, content: WeeklyWeatherRowView.init(viewModel:))
+        }
     }
 }
 
