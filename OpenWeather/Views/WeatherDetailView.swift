@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherDetailView: View {
     @ObservedObject private var viewModel = WeeklyWeatherViewModel()
+    var currentForecast: CurrentWeatherForecast
     var coordinates: Coordinates
 
     var body: some View {
@@ -23,8 +24,13 @@ struct WeatherDetailView: View {
                 Text("No results \(error.localizedDescription)")
             case .loaded:
                 List {
-                    forecastSection
                     Section {
+                        todaysForecast
+                    }
+                    Section(header: Text("")) {
+                        weeklyForecast
+                    }
+                    Section(header: Text("")) {
                         sunInfoSection
                         rainInfoSection
                         additionalInfoSection
@@ -35,10 +41,32 @@ struct WeatherDetailView: View {
 }
 
 private extension WeatherDetailView {
-    var forecastSection: some View {
-        Section {
-            ForEach(viewModel.dataSource, content: WeeklyWeatherRowView.init(viewModel:))
+    var todaysForecast: some View {
+        VStack {
+            Spacer()
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("\(currentForecast.name)")
+                        .font(.largeTitle)
+                    Text("\(currentForecast.weather.first!.weatherDescription)")
+                        .font(.caption)
+                    HStack {
+                        Text("H: \(String(format: "%.1f", currentForecast.main.maxTemperature))°")
+                            .font(.caption)
+                        Text("L: \(String(format: "%.1f", currentForecast.main.minTemperature))°")
+                            .font(.caption)
+                    }
+                }
+                Spacer()
+                Text("\(String(format: "%.1f", currentForecast.main.temperature))°")
+                    .font(.largeTitle)
+            }
+            Spacer()
         }
+    }
+
+    var weeklyForecast: some View {
+        ForEach(viewModel.dataSource, content: WeeklyWeatherRowView.init(viewModel:))
     }
 
     var sunInfoSection: some View {
@@ -92,10 +120,15 @@ struct WeatherInfoView: View {
 
 
 struct WeatherDetailView_Previews: PreviewProvider {
+    @State static var weather = CurrentWeatherForecast(id: 19282, name: "Madison", coord: Coord(lat: 12.3, lon: 12.3),
+                                                       weather: [CurrentWeatherForecast.Weather(id: 3838, main: "Clear",
+                                                                                                weatherDescription: "clear sky", icon: "01d")],
+                                                       main: .init(temperature: 23.4, humidity: 3,
+                                                                   maxTemperature: 25.0, minTemperature: 18.0))
     @State static var coord = Coordinates(latitude: 23.0, longitude: 45.0)
 
     static var previews: some View {
-        WeatherDetailView(coordinates: coord)
+        WeatherDetailView(currentForecast: weather, coordinates: coord)
     }
 }
 
