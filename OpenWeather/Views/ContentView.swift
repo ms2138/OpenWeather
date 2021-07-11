@@ -17,7 +17,8 @@ struct ContentView: View {
                 List {
                     ForEach(currentWeatherViewModel.dataSource) { weather in
                         HStack {
-                            NavigationLink(destination: WeatherDetailView(coordinates: Coordinates(latitude: weather.coord.lat,
+                            NavigationLink(destination: WeatherDetailView(currentForecast: weather,
+                                                                          coordinates: Coordinates(latitude: weather.coord.lat,
                                                                                                    longitude: weather.coord.lon))) {
                                 CurrentWeatherRowView(weather: weather)
                             }
