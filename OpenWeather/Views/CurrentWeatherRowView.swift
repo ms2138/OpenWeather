@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CurrentWeatherRowView: View {
     let weather: CurrentWeatherForecast
+    @Binding var temperatureUnit: TemperatureUnit
 
     var body: some View {
         HStack {
@@ -19,7 +20,7 @@ struct CurrentWeatherRowView: View {
                     .font(.caption2)
             }
             Spacer()
-            Text("\(String(format: "%.1f", weather.main.temperature))")
+            Text("\(String(format: "%.1f", convert(temperature: weather.main.temperature, to: temperatureUnit)))")
                 .font(.title)
         }
     }
@@ -31,8 +32,9 @@ struct CurrentWeatherRowView_Previews: PreviewProvider {
                                                                          weatherDescription: "clear sky", icon: "01d")],
                                                        main: .init(temperature: 23.4, humidity: 3,
                                                                    maxTemperature: 25.0, minTemperature: 18.0))
+    @State static var temperatureUnit = TemperatureUnit.celsius
 
     static var previews: some View {
-        CurrentWeatherRowView(weather: weather)
+        CurrentWeatherRowView(weather: weather, temperatureUnit: $temperatureUnit)
     }
 }
