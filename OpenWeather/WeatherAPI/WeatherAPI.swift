@@ -38,7 +38,7 @@ class WeatherAPI {
     }
 
     // Create daily forecast endpoint using longitude and latitude coordinates
-    func createDailyForecastEndpoint(forCoordinates coord: Coordinates, unit: TemperatureUnit = .metric) -> URLComponents {
+    func createDailyForecastEndpoint(forCoordinates coord: Coordinates, unit: TemperatureUnit) -> URLComponents {
         var components = createWeatherAPIComponents()
         components.path = APIEndpoint.dataPath + "/weather"
 
@@ -110,23 +110,23 @@ struct Coordinates {
 // imperial will result in Fahrenheit
 // standard will result in Kelvin
 enum TemperatureUnit: String {
-    case metric = "metric",
-         imperial = "imperial",
-         standard = "standard"
+    case celsius = "metric",
+         fahrenheit = "imperial",
+         kelvin = "standard"
 }
 
 extension WeatherAPI: WeatherFetchable {
-    func getFiveDayWeatherForecast(forCoordinates coord: Coordinates, unit: TemperatureUnit) -> AnyPublisher<FiveDayWeatherForecast, APIError> {
+    func getFiveDayWeatherForecast(forCoordinates coord: Coordinates, unit: TemperatureUnit = .kelvin) -> AnyPublisher<FiveDayWeatherForecast, APIError> {
         return session.performRequest(createFiveDayForecastEndpoint(forCoordinates: coord, unit: unit))
     }
 
     func getSevenDayWeatherForecast(forCoordinates coord: Coordinates,
-                                    unit: TemperatureUnit = .metric) -> AnyPublisher<SevenDayWeatherForecast, APIError> {
+                                    unit: TemperatureUnit = .kelvin) -> AnyPublisher<SevenDayWeatherForecast, APIError> {
         return session.performRequest(createSevenDayForecastEndpoint(forCoordinates: coord, unit: unit))
     }
 
     func getCurrentWeatherForecast(forCoordinates coord: Coordinates,
-                                   unit: TemperatureUnit = .metric) -> AnyPublisher<CurrentWeatherForecast, APIError> {
+                                   unit: TemperatureUnit = .kelvin) -> AnyPublisher<CurrentWeatherForecast, APIError> {
         return session.performRequest(createDailyForecastEndpoint(forCoordinates: coord, unit: unit))
     }
 
