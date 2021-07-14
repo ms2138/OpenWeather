@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var currentWeatherViewModel = CurrentWeatherViewModel()
     @State private var addCityConfig = AddCityConfig()
+    @AppStorage("temperatureUnit") var temperatureUnit: TemperatureUnit = TemperatureUnit.celsius
+    @State private var temperatureUnitButtonOpacity: Double = 1.0
 
     var body: some View {
         NavigationView {
@@ -19,8 +21,10 @@ struct ContentView: View {
                         HStack {
                             NavigationLink(destination: WeatherDetailView(currentForecast: weather,
                                                                           coordinates: Coordinates(latitude: weather.coord.lat,
-                                                                                                   longitude: weather.coord.lon))) {
-                                CurrentWeatherRowView(weather: weather)
+                                                                                                   longitude: weather.coord.lon),
+                                                                          temperatureUnit: $temperatureUnit)) {
+                                
+                                CurrentWeatherRowView(weather: weather, temperatureUnit: $temperatureUnit)
                             }
                         }
                     }
@@ -29,6 +33,21 @@ struct ContentView: View {
                     }
 
                     HStack(alignment: .center) {
+                        Button(action: {
+                            temperatureUnit = temperatureUnit == .celsius ? .fahrenheit : .celsius
+                            withAnimation(.easeInOut(duration: 0.5), {
+                                self.temperatureUnitButtonOpacity = 0.0
+                            })
+                            withAnimation(.easeInOut(duration: 1), {
+                                self.temperatureUnitButtonOpacity = 1.0
+                            })
+                        }) {
+                            Text("\(temperatureUnit == .celsius ? "C°" : "F°")")
+                                .opacity(temperatureUnitButtonOpacity)
+                        }
+                        .foregroundColor(.blue)
+                        .buttonStyle(PlainButtonStyle())
+
                         Spacer()
 
                         Button(action: {
