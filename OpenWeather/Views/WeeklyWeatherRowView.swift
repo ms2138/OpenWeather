@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct WeeklyWeatherRowView: View {
-    private let viewModel: WeatherRowViewModel
-
-    init(viewModel: WeatherRowViewModel) {
-        self.viewModel = viewModel
-    }
+    let viewModel: WeatherRowViewModel
+    @Binding var temperatureUnit: TemperatureUnit
 
     var body: some View {
         HStack {
@@ -33,10 +30,10 @@ struct WeeklyWeatherRowView: View {
             }
 
             HStack(alignment: .center, spacing: 10.0) {
-                Text("\(viewModel.maxTemperature)°")
+                Text(String(format: "%.1f°", convert(temperature: viewModel.maxTemperature, to: temperatureUnit)))
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                Text("\(viewModel.minTemperature)°")
+                Text(String(format: "%.1f°", convert(temperature: viewModel.minTemperature, to: temperatureUnit)))
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
@@ -55,8 +52,9 @@ struct WeeklyWeatherRowView_Previews: PreviewProvider {
                                                                             [Weather(id: 393, main: .clear,
                                                                                      weatherDescription: "clear sky", icon: "39d")],
                                                                          clouds: 12, pop: 293.9, rain: nil, uvi: 13))
+    @State static var temperatureUnit = TemperatureUnit.celsius
 
     static var previews: some View {
-        WeeklyWeatherRowView(viewModel: viewModel)
+        WeeklyWeatherRowView(viewModel: viewModel, temperatureUnit: $temperatureUnit)
     }
 }

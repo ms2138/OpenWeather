@@ -11,6 +11,7 @@ struct WeatherDetailView: View {
     @ObservedObject private var viewModel = WeeklyWeatherViewModel()
     var currentForecast: CurrentWeatherForecast
     var coordinates: Coordinates
+    @Binding var temperatureUnit: TemperatureUnit
 
     var body: some View {
         switch viewModel.state {
@@ -51,14 +52,14 @@ private extension WeatherDetailView {
                     Text("\(currentForecast.weather.first!.weatherDescription)")
                         .font(.caption)
                     HStack {
-                        Text("H: \(String(format: "%.1f", currentForecast.main.maxTemperature))°")
+                        Text("H: \(String(format: "%.1f", convert(temperature: currentForecast.main.maxTemperature, to: temperatureUnit)))°")
                             .font(.caption)
-                        Text("L: \(String(format: "%.1f", currentForecast.main.minTemperature))°")
+                        Text("L: \(String(format: "%.1f", convert(temperature: currentForecast.main.minTemperature, to: temperatureUnit)))°")
                             .font(.caption)
                     }
                 }
                 Spacer()
-                Text("\(String(format: "%.1f", currentForecast.main.temperature))°")
+                Text(String(format: "%.1f°", convert(temperature: currentForecast.main.temperature, to: temperatureUnit)))
                     .font(.largeTitle)
             }
             Spacer()
@@ -66,7 +67,9 @@ private extension WeatherDetailView {
     }
 
     var weeklyForecast: some View {
-        ForEach(viewModel.dataSource, content: WeeklyWeatherRowView.init(viewModel:))
+        ForEach(viewModel.dataSource) { viewModel in
+            WeeklyWeatherRowView(viewModel: viewModel, temperatureUnit: $temperatureUnit)
+        }
     }
 
     var sunInfoSection: some View {
@@ -96,7 +99,9 @@ private extension WeatherDetailView {
             if let firstForecast = viewModel.dataSource.first {
                 HStack {
                     WeatherInfoView(title: "UV", information: "\(firstForecast.uvIndex)")
-                    WeatherInfoView(title: "FEELS LIKE", information: "\(firstForecast.feelsLike)")
+                    WeatherInfoView(title: "FEELS LIKE",
+                                    information:
+                                        String(format: "%.1f", convert(temperature: firstForecast.feelsLike, to: temperatureUnit)))
                 }
             }
         }
@@ -126,9 +131,10 @@ struct WeatherDetailView_Previews: PreviewProvider {
                                                        main: .init(temperature: 23.4, humidity: 3,
                                                                    maxTemperature: 25.0, minTemperature: 18.0))
     @State static var coord = Coordinates(latitude: 23.0, longitude: 45.0)
+    @State static var temperatureUnit = TemperatureUnit.celsius
 
     static var previews: some View {
-        WeatherDetailView(currentForecast: weather, coordinates: coord)
+        WeatherDetailView(currentForecast: weather, coordinates: coord, temperatureUnit: $temperatureUnit)
     }
 }
 
