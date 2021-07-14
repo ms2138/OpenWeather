@@ -37,12 +37,12 @@ struct WeatherRowViewModel: Identifiable {
         return description
     }
 
-    var maxTemperature: String {
-        return String(format: "%.1f", forecast.temp.max)
+    var maxTemperature: Double {
+        forecast.temp.max
     }
 
-    var minTemperature: String {
-        return String(format: "%.1f", forecast.temp.min)
+    var minTemperature: Double {
+        forecast.temp.min
     }
 
     var humidity: String {
@@ -61,8 +61,8 @@ struct WeatherRowViewModel: Identifiable {
         return timeFormatter.string(from: forecast.sunset)
     }
 
-    var feelsLike: String {
-        return String(format: "%.1f", forecast.feelsLike.day)
+    var feelsLike: Double {
+        return forecast.feelsLike.day
     }
 
     var uvIndex: String {
