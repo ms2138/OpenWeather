@@ -65,6 +65,10 @@ struct WeatherRowViewModel: Identifiable {
         return forecast.feelsLike.day
     }
 
+    var amountOfRain: Double {
+        return forecast.rain ?? 0.0
+    }
+
     var uvIndex: String {
         return String(format: "%d", forecast.uvi)
     }
