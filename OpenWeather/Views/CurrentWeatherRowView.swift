@@ -20,7 +20,7 @@ struct CurrentWeatherRowView: View {
                     .font(.caption2)
             }
             Spacer()
-            Text("\(String(format: "%.1f", convert(temperature: weather.main.temperature, to: temperatureUnit)))")
+            Text("\(String(format: "%.1f", convert(temperature: weather.main.temperature, to: temperatureUnit)))°")
                 .font(.title)
         }
     }
