@@ -37,6 +37,7 @@ struct WeatherDetailView: View {
                         additionalInfoSection
                     }
                 }
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -67,8 +68,10 @@ private extension WeatherDetailView {
     }
 
     var weeklyForecast: some View {
-        ForEach(viewModel.dataSource) { viewModel in
-            WeeklyWeatherRowView(viewModel: viewModel, temperatureUnit: $temperatureUnit)
+        // Exlude the first weather forecast from displaying because it will be shown in the first section
+        ForEach(1..<viewModel.dataSource.count) {
+            let weatherViewModel = viewModel.dataSource[$0]
+            WeeklyWeatherRowView(viewModel: weatherViewModel, temperatureUnit: $temperatureUnit)
         }
     }
 
