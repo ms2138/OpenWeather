@@ -38,6 +38,7 @@ struct WeatherDetailView: View {
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(currentForecast.name)
         }
     }
 }
