@@ -117,7 +117,7 @@
 		3C520438266DDAD700087B05 /* OpenWeather */ = {
 			isa = PBXGroup;
 			children = (
-				3C683920269FED1A00F733BB /* JSONDataManager.swift */,
+				3C683924269FEE3400F733BB /* Data Managers */,
 				3C0F3E15269160B5005D6A1F /* Helpers */,
 				3C520439266DDAD700087B05 /* OpenWeatherApp.swift */,
 				3C0F3E0A269013D9005D6A1F /* Views */,
@@ -173,6 +173,14 @@
 				3C0F3E23269414A1005D6A1F /* LoadingState.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		3C683924269FEE3400F733BB /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3C683920269FED1A00F733BB /* JSONDataManager.swift */,
+			);
+			path = "Data Managers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
