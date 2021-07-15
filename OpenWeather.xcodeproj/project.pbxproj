@@ -32,6 +32,7 @@
 		3C520476267AFE8300087B05 /* AddCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C520475267AFE8300087B05 /* AddCityView.swift */; };
 		3C52047A26896ECB00087B05 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52047926896ECB00087B05 /* LocationViewModel.swift */; };
 		3C68391E269D2FA700F733BB /* TemperatureConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68391D269D2FA700F733BB /* TemperatureConversion.swift */; };
+		3C683921269FED1A00F733BB /* JSONDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C683920269FED1A00F733BB /* JSONDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		3C520475267AFE8300087B05 /* AddCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityView.swift; sourceTree = "<group>"; };
 		3C52047926896ECB00087B05 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		3C68391D269D2FA700F733BB /* TemperatureConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConversion.swift; sourceTree = "<group>"; };
+		3C683920269FED1A00F733BB /* JSONDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		3C520438266DDAD700087B05 /* OpenWeather */ = {
 			isa = PBXGroup;
 			children = (
+				3C683920269FED1A00F733BB /* JSONDataManager.swift */,
 				3C0F3E15269160B5005D6A1F /* Helpers */,
 				3C520439266DDAD700087B05 /* OpenWeatherApp.swift */,
 				3C0F3E0A269013D9005D6A1F /* Views */,
@@ -264,6 +267,7 @@
 				3C0F3E0D26901422005D6A1F /* WeatherDetailView.swift in Sources */,
 				3C5204612678592A00087B05 /* FiveDayWeatherForecast.swift in Sources */,
 				3C52043A266DDAD700087B05 /* OpenWeatherApp.swift in Sources */,
+				3C683921269FED1A00F733BB /* JSONDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
