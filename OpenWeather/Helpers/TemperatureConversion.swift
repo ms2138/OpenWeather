@@ -10,9 +10,9 @@ import Foundation
 func convert(temperature temp: Double, to unit: TemperatureUnit) -> Double {
     switch unit {
         case .celsius:
-            return temp - 273.15
+            return temp
         case .fahrenheit:
-            return (temp * 1.8) - 459.67
+            return (temp * 1.8) + 32
         default:
             return 0.0
     }
