@@ -116,17 +116,17 @@ enum TemperatureUnit: String {
 }
 
 extension WeatherAPI: WeatherFetchable {
-    func getFiveDayWeatherForecast(forCoordinates coord: Coordinates, unit: TemperatureUnit = .kelvin) -> AnyPublisher<FiveDayWeatherForecast, APIError> {
+    func getFiveDayWeatherForecast(forCoordinates coord: Coordinates, unit: TemperatureUnit = .celsius) -> AnyPublisher<FiveDayWeatherForecast, APIError> {
         return session.performRequest(createFiveDayForecastEndpoint(forCoordinates: coord, unit: unit))
     }
 
     func getSevenDayWeatherForecast(forCoordinates coord: Coordinates,
-                                    unit: TemperatureUnit = .kelvin) -> AnyPublisher<SevenDayWeatherForecast, APIError> {
+                                    unit: TemperatureUnit = .celsius) -> AnyPublisher<SevenDayWeatherForecast, APIError> {
         return session.performRequest(createSevenDayForecastEndpoint(forCoordinates: coord, unit: unit))
     }
 
     func getCurrentWeatherForecast(forCoordinates coord: Coordinates,
-                                   unit: TemperatureUnit = .kelvin) -> AnyPublisher<CurrentWeatherForecast, APIError> {
+                                   unit: TemperatureUnit = .celsius) -> AnyPublisher<CurrentWeatherForecast, APIError> {
         return session.performRequest(createDailyForecastEndpoint(forCoordinates: coord, unit: unit))
     }
 
