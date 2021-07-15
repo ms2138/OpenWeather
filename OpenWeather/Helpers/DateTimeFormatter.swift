@@ -19,3 +19,18 @@ let dayFormatter: DateFormatter = {
     formatter.dateFormat = "EEEE"
     return formatter
 }()
+
+let timeOfTheDay: TimeOfDay = {
+    let hour = Calendar.current.component(.hour, from: Date())
+
+    switch hour {
+        case 6..<12 : return .morning
+        case 12..<17 : return .day
+        case 17..<22 : return .evening
+        default: return .night
+    }
+}()
+
+enum TimeOfDay {
+    case morning, day, evening, night
+}

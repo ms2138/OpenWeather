@@ -62,7 +62,18 @@ struct WeatherRowViewModel: Identifiable {
     }
 
     var feelsLike: Double {
-        return forecast.feelsLike.day
+        let timeOfDay = timeOfTheDay
+        switch timeOfDay {
+            case .morning:
+                return forecast.feelsLike.morn
+            case .day:
+                return forecast.feelsLike.day
+            case .evening:
+                return forecast.feelsLike.eve
+            case .night:
+                return forecast.feelsLike.night
+
+        }
     }
 
     var amountOfRain: Double {
