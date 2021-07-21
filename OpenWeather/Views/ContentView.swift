@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var addCityConfig = AddCityConfig()
     @AppStorage("temperatureUnit") var temperatureUnit: TemperatureUnit = TemperatureUnit.celsius
     @State private var temperatureUnitButtonOpacity: Double = 1.0
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         NavigationView {
@@ -68,8 +69,16 @@ struct ContentView: View {
                         })
                     }
                 }
+                .navigationBarTitle("Weather")
             }
-            .navigationBarTitle("Weather")
+            .onAppear {
+                if self.currentWeatherViewModel.dataSource.count == 0 {
+                    currentWeatherViewModel.load()
+                }
+            }
+            .onChange(of: scenePhase) { phase in
+                if phase == .inactive { currentWeatherViewModel.save() }
+            }
         }
     }
 }
