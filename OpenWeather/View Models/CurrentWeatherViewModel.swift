@@ -12,6 +12,9 @@ class CurrentWeatherViewModel: ObservableObject {
     var weather = WeatherAPI()
     @Published var dataSource = [CurrentWeatherForecast]()
     private var disposables = Set<AnyCancellable>()
+    private static var savedFileURL: URL {
+        return FileManager.default.documentsDirectory.appendingPathComponent("locations.json")
+    }
 
     func currentWeather(forCoordinates coord: Coordinates) {
         weather.getCurrentWeatherForecast(forCoordinates: coord)
@@ -23,9 +26,39 @@ class CurrentWeatherViewModel: ObservableObject {
                     case .finished:
                         break
                 }
-            } receiveValue: { (forecast) in
-                self.dataSource.append(forecast)
+            } receiveValue: { [weak self] (forecast) in
+                guard let weakSelf = self else { return }
+                weakSelf.dataSource.insert(forecast, at: weakSelf.dataSource.startIndex)
             }
             .store(in: &disposables)
+    }
+}
+
+extension CurrentWeatherViewModel {
+    func load() {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let savedLocations = try? JSONDataManager<CurrentWeatherForecast>().read(from: Self.savedFileURL) else {
+                return
+            }
+
+            DispatchQueue.main.async {
+                for location in savedLocations {
+                    self?.currentWeather(forCoordinates: Coordinates(latitude: location.coord.lat,
+                                                                     longitude: location.coord.lon))
+                }
+            }
+        }
+    }
+
+    func save() {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let items = self?.dataSource else { fatalError("Self out of scope") }
+
+            do {
+                try JSONDataManager().write(data: items, to: Self.savedFileURL)
+            } catch {
+                print("Failed to save locations.")
+            }
+        }
     }
 }
