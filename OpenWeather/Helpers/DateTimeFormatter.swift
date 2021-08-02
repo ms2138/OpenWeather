@@ -7,11 +7,12 @@
 
 import Foundation
 
-let timeFormatter: DateFormatter = {
+func timeFormatter(forTimeZone timeZone: String) -> DateFormatter {
     let formatter = DateFormatter()
     formatter.dateFormat = "h:mm a"
+    formatter.timeZone = TimeZone(identifier: timeZone)
     return formatter
-}()
+}
 
 let dayFormatter: DateFormatter = {
     let formatter = DateFormatter()
