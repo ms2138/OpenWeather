@@ -18,8 +18,11 @@ class WeeklyWeatherViewModel: ObservableObject {
         self.state = .loading
 
         weather.getSevenDayWeatherForecast(forCoordinates: coord)
-            .map {
-                $0.forecast.map(WeatherRowViewModel.init)
+            .map { weather -> [WeatherRowViewModel] in
+                let timeZone = weather.timezone
+                return weather.forecast.map { forecast in
+                    WeatherRowViewModel(forecast: forecast, timeZone: timeZone)
+                }
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] (value) in
