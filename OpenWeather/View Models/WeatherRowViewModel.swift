@@ -9,7 +9,8 @@ import Foundation
 
 struct WeatherRowViewModel: Identifiable {
     private let forecast: Forecast
-    var id: UUID = UUID()
+    private let timeZone: String
+    let id: UUID = UUID()
 
     var icon: String {
         switch forecast.weather[0].main {
@@ -54,11 +55,11 @@ struct WeatherRowViewModel: Identifiable {
     }
 
     var sunrise: String {
-        return timeFormatter.string(from: forecast.sunrise)
+        return timeFormatter(forTimeZone: timeZone).string(from: forecast.sunrise)
     }
 
     var sunset: String {
-        return timeFormatter.string(from: forecast.sunset)
+        return timeFormatter(forTimeZone: timeZone).string(from: forecast.sunset)
     }
 
     var feelsLike: Double {
@@ -84,7 +85,8 @@ struct WeatherRowViewModel: Identifiable {
         return String(format: "%d", forecast.uvi)
     }
 
-    init(forecast: Forecast) {
+    init(forecast: Forecast, timeZone: String) {
         self.forecast = forecast
+        self.timeZone = timeZone
     }
 }
