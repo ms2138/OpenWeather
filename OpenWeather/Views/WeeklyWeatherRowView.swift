@@ -51,7 +51,7 @@ struct WeeklyWeatherRowView_Previews: PreviewProvider {
                                                                          windDeg: 32, windGust: 34.3, weather:
                                                                             [Weather(id: 393, main: .clear,
                                                                                      weatherDescription: "clear sky", icon: "39d")],
-                                                                         clouds: 12, pop: 293.9, rain: nil, uvi: 13))
+                                                                         clouds: 12, pop: 293.9, rain: nil, uvi: 13), timeZone: "America/New_York")
     @State static var temperatureUnit = TemperatureUnit.celsius
 
     static var previews: some View {
