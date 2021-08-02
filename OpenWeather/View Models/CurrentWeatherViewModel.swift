@@ -32,6 +32,26 @@ class CurrentWeatherViewModel: ObservableObject {
             }
             .store(in: &disposables)
     }
+
+    func refresh(forecast: CurrentWeatherForecast) {
+        weather.getCurrentWeatherForecast(forCoordinates: Coordinates(latitude: forecast.coord.lat,
+                                                                      longitude: forecast.coord.lon))
+            .receive(on: DispatchQueue.main)
+            .sink { (value) in
+                switch value {
+                    case .failure(_):
+                        print("Request failed: \(value)")
+                    case .finished:
+                        break
+                }
+            } receiveValue: { [weak self] (forecast) in
+                guard let weakSelf = self else { return }
+                if let index = weakSelf.dataSource.firstIndex(where: { $0.id == forecast.id }) {
+                    weakSelf.dataSource[index] = forecast
+                }
+            }
+            .store(in: &disposables)
+    }
 }
 
 extension CurrentWeatherViewModel {
@@ -43,8 +63,8 @@ extension CurrentWeatherViewModel {
 
             DispatchQueue.main.async {
                 for location in savedLocations {
-                    self?.currentWeather(forCoordinates: Coordinates(latitude: location.coord.lat,
-                                                                     longitude: location.coord.lon))
+                    self?.dataSource.append(location)
+                    self?.refresh(forecast: location)
                 }
             }
         }
