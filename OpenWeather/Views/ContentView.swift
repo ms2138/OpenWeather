@@ -16,15 +16,15 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                List {
+            List {
+                Section {
                     ForEach(currentWeatherViewModel.dataSource) { weather in
                         HStack {
                             NavigationLink(destination: WeatherDetailView(currentForecast: weather,
                                                                           coordinates: Coordinates(latitude: weather.coord.lat,
                                                                                                    longitude: weather.coord.lon),
                                                                           temperatureUnit: $temperatureUnit)) {
-                                
+
                                 CurrentWeatherRowView(weather: weather, temperatureUnit: $temperatureUnit)
                             }
                         }
@@ -32,7 +32,9 @@ struct ContentView: View {
                     .onDelete { indexSet in
                         currentWeatherViewModel.dataSource.remove(atOffsets: indexSet)
                     }
+                }
 
+                Section {
                     HStack(alignment: .center) {
                         Button(action: {
                             temperatureUnit = temperatureUnit == .celsius ? .fahrenheit : .celsius
@@ -69,16 +71,18 @@ struct ContentView: View {
                         })
                     }
                 }
-                .navigationBarTitle("Weather")
             }
-            .onAppear {
-                if self.currentWeatherViewModel.dataSource.count == 0 {
-                    currentWeatherViewModel.load()
-                }
+            .animation(.default)
+            .listStyle(InsetGroupedListStyle())
+            .navigationBarTitle("Weather")
+        }
+        .onAppear {
+            if self.currentWeatherViewModel.dataSource.count == 0 {
+                currentWeatherViewModel.load()
             }
-            .onChange(of: scenePhase) { phase in
-                if phase == .inactive { currentWeatherViewModel.save() }
-            }
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { currentWeatherViewModel.save() }
         }
     }
 }
