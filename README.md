@@ -1,6 +1,9 @@
 # OpenWeather
 An application that provides a cities weather forecast using SwiftUI
 
+# Demo
+![OpenWeather - Animated gif demo](demo.gif)
+
 # Run Project
 To run the project:
 
