@@ -45,9 +45,8 @@ class CurrentWeatherViewModel: ObservableObject {
                         break
                 }
             } receiveValue: { [weak self] (forecast) in
-                guard let weakSelf = self else { return }
-                if let index = weakSelf.dataSource.firstIndex(where: { $0.id == forecast.id }) {
-                    weakSelf.dataSource[index] = forecast
+                if let index = self?.dataSource.firstIndex(where: { $0.id == forecast.id }) {
+                    self?.dataSource[index] = forecast
                 }
             }
             .store(in: &disposables)

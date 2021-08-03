@@ -26,17 +26,15 @@ class WeeklyWeatherViewModel: ObservableObject {
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] (value) in
-                guard let weakSelf = self else { return }
                 switch value {
                     case .finished:
                         break
                     case .failure(let error):
-                        weakSelf.state = .failed(error)
+                        self?.state = .failed(error)
                 }
             } receiveValue: { [weak self] (forecast) in
-                guard let weakSelf = self else { return }
-                weakSelf.state = .loaded
-                weakSelf.dataSource = forecast
+                self?.state = .loaded
+                self?.dataSource = forecast
             }
             .store(in: &disposables)
     }
