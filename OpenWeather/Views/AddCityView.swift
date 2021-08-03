@@ -84,6 +84,8 @@ private extension AddCityView {
                     addCityConfig.newLocation = location
                     addCityConfig.dismiss(save: true)
                 }
+                .listRowBackground(addCityConfig.newLocation == location ?
+                                    Color(UIColor.init(white: 0.7, alpha: 0.5)) : Color(UIColor.systemBackground))
             }
         }
     }
