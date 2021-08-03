@@ -24,10 +24,21 @@ struct AddCityView: View {
 
                 searchField
 
-                List {
-                    locations
+                switch viewModel.state {
+                    case .idle:
+                        Color.clear
+                    case .loading:
+                        ProgressView()
+                            .frame(maxHeight: .infinity, alignment: .center)
+                    case .failed(_):
+                        Text("No results found")
+                            .frame(maxHeight: .infinity, alignment: .center)
+                    case .loaded:
+                        List {
+                            locations
+                        }
+                        .listStyle(GroupedListStyle())
                 }
-                .listStyle(GroupedListStyle())
             }
         }
     }
