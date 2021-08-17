@@ -8,6 +8,7 @@ An application that provides a cities weather forecast using SwiftUI
 To run the project:
 
 * Clone this repository
+* Register at https://home.openweathermap.org/users/sign_up for a free api key
 * Open OpenWeather.xcodeproj
 * Build and run in Xcode
 
